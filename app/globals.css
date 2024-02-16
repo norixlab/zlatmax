@@ -2,32 +2,146 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.container {
+  max-width: 1620px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+/* active header links */
+.active {
+  color: #E8AA31;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.active::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #E8AA31;
+  bottom: -4px;
+}
+/* decor header links */
+.linkHeaderBottom::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: #E8AA31;
+  left: auto;
+  right: 0;
+  bottom: -4px;
+  transition: all 0.3s ease;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.linkHeaderBottom:hover::before {
+  width: 100%;
+  right: auto;
+  left: 0;
+}
+/* decor icon in login and register forms */
+.knifeRotate{
+  transform: rotateY(180deg);
+}
+.newsLaterIcon{
+  transition: all .2s ease;
+
+}
+.newsLaterBtn:hover .newsLaterIcon{
+  transform: translateX(5px);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+
+swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.mySwiper2 {
+  height: 80%;
+  width: 100%;
+}
+
+.mySwiper {
+  height: 25%;
+  box-sizing: border-box;
+  /* padding: 10px 0; */
+}
+
+.mySwiper .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* select in single product */
+.custom-single-select__control{
+  border-radius: 3px;
+  min-height: 40px;
+}
+.custom-single-select__control--is-focused{
+  
+  border-color: #cccccc;
+  box-shadow: none;
+}
+.custom-single-select__control--is-focused:hover{
+  
+  border-color: #cccccc;
+  
+}
+.custom-single-select__indicator-separator{
+  display: none;
+}
+.custom-single-select__indicators{
+  background: #141414;
+  border: none;
+  
+  width: 40px;
+}
+.custom-single-select__indicator svg{
+color: #E8AA31;
+position: relative;
+left: 2px;
+}
+.custom-single-select__option--is-focused{
+background-color: #141414;
+color: #fff;
+}
+.custom-single-select__option--is-selected{
+  background-color: #141414;
+color: #fff;
 }
